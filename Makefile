@@ -9,4 +9,13 @@ down:
 		--timeout 60; \
 	docker-compose rm -f
 
-.PHONY: test
+install:
+	npm ci
+
+lint:
+	npm run lint
+
+run:
+	npm start
+
+.PHONY: lint up run down

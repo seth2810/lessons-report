@@ -5,11 +5,33 @@ on:
   - pull_request
 
 jobs:
-  test:
+  build:
+    # The type of machine to run the job on
     runs-on: ubuntu-latest
+
+    strategy:
+      # Node versions list
+      matrix:
+        node-version: [10.x]
+
     steps:
       - uses: actions/checkout@v2
-      - name: make up
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install
+        run: make install
+        env:
+          CI: true
+
+      - name: Lint
+        run: make lint
+
+      - name: Create environment
         run: make up
-      - name: make down
+
+      - name: Destroy environment
         run: make down

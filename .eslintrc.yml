@@ -1,0 +1,15 @@
+---
+env:
+  node: true
+  es2017: true
+
+extends:
+  - "airbnb-base"
+
+parserOptions:
+  ecmaVersion: 10
+  sourceType: module
+
+rules:
+  no-console: 0
+  import/extensions: 0
