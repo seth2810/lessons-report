@@ -9,6 +9,7 @@
   },
   "scripts": {
     "lint": "npx eslint . --no-error-on-unmatched-pattern",
+    "test": "npx jest --bail --passWithNoTests",
     "start": "node index.mjs"
   },
   "repository": {
@@ -26,12 +27,36 @@
   },
   "homepage": "https://github.com/seth2810/lessons-report#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.15.0",
+    "babel-jest": "^27.0.6",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.24.0"
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "http-codes": "^1.0.0",
+    "jest": "^27.0.6",
+    "supertest": "^6.1.6"
   },
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.21.21"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.m?jsx?$": "babel-jest"
+    }
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
   }
 }

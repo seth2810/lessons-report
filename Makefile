@@ -1,5 +1,5 @@
 up:
-	docker-compose up -d --build
+	docker-compose up -d --build --scale tests=0
 
 down:
 	docker-compose down \
@@ -15,7 +15,19 @@ install:
 lint:
 	npm run lint
 
+test:
+	npm test
+
+test-coverage:
+	npm test -- --coverage --coverageProvider=v8
+
+test-ci: up
+	set -e ;\
+	test_status_code=0 ;\
+	docker-compose run tests || test_status_code=$$? ;\
+	exit $$test_status_code ;
+
 run:
 	npm start
 
-.PHONY: lint up run down
+.PHONY: lint up test run down

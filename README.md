@@ -1,3 +1,7 @@
+# Lessons report
+
+[![Project CI](https://github.com/seth2810/lessons-report/actions/workflows/ci.yml/badge.svg)](https://github.com/seth2810/lessons-report/actions/workflows/ci.yml)
+
 # Краткое описание.
 Требуется создать веб-сервер на базе `KoaJS` или `ExpressJS`, который будет работать с данными по занятиям.
 Данные хранятся в СУБД `PostgreSQL`, дамп тестовых данных прилагается к тестовому заданию.
