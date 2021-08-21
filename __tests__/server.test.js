@@ -10,6 +10,11 @@ describe('api', () => {
     const res = await client.get('/');
 
     expect(res.statusCode).toBe(codes.OK);
-    expect(res.text).toBe('Hello World!');
+    expect(res.body).toEqual({
+      id: 9,
+      date: '2019-06-20T00:00:00.000Z',
+      title: 'Yellow Color',
+      status: 1,
+    });
   });
 });

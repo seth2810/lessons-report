@@ -15,6 +15,9 @@ install:
 lint:
 	npm run lint
 
+env:
+	cp -n .env.example .env || true
+
 test:
 	npm test
 
@@ -30,4 +33,4 @@ test-ci: up
 run:
 	npm start
 
-.PHONY: lint up test run down
+.PHONY: lint up env test run down

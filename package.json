@@ -9,8 +9,8 @@
   },
   "scripts": {
     "lint": "npx eslint . --no-error-on-unmatched-pattern",
-    "test": "npx jest --bail --passWithNoTests",
-    "start": "node index.mjs"
+    "test": "npx jest --bail --passWithNoTests --forceExit --setupFiles dotenv/config",
+    "start": "node -r dotenv/config index.mjs"
   },
   "repository": {
     "type": "git",
@@ -38,8 +38,10 @@
     "supertest": "^6.1.6"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "knex": "^0.21.21"
+    "knex": "^0.21.21",
+    "pg": "^8.7.1"
   },
   "jest": {
     "testEnvironment": "node",
